@@ -1,0 +1,306 @@
+@use 'variables' as *;
+
+// ── Form Input (Auth) ──
+.form-input {
+    position: relative;
+    margin-bottom: 20px;
+
+    label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: $text-primary;
+        margin-bottom: 8px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        color: $text-primary;
+        background: $bg-primary;
+        border: 1px solid $border-subtle;
+        border-radius: $radius-sm;
+        outline: none;
+        transition: all $transition-base;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) inset;
+
+        &::placeholder {
+            color: $text-muted;
+        }
+
+        &:focus {
+            border-color: $border-focus;
+            box-shadow: 0 0 0 1px $border-focus;
+        }
+    }
+
+    &--password input {
+        padding-right: 44px;
+    }
+
+    &__toggle {
+        position: absolute;
+        right: 12px;
+        bottom: 10px;
+        background: none;
+        border: none;
+        color: $text-muted;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $radius-xs;
+        transition: color $transition-fast;
+
+        &:hover {
+            color: $text-primary;
+        }
+    }
+}
+
+// ── Field Wrap (Dashboard textareas) ──
+.field-wrap {
+    position: relative;
+
+    &__count {
+        position: absolute;
+        bottom: 12px;
+        right: 16px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: $text-muted;
+        pointer-events: none;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        color: $text-muted;
+        pointer-events: none;
+    }
+}
+
+.field {
+    width: 100%;
+    padding: 16px;
+    background: $bg-primary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius;
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $text-primary;
+    resize: none;
+    outline: none;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &::placeholder {
+        color: $text-muted;
+    }
+
+    &:focus {
+        border-color: $border-focus;
+        box-shadow: 0 0 0 3px rgba($border-focus, 0.15);
+    }
+
+    &--short {
+        padding-left: 40px;
+    }
+}
+
+// ── Dropzone ──
+.dropzone {
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+    padding: 20px;
+    border: 1.5px dashed $border-focus;
+    border-radius: $radius;
+    background: rgba($bg-primary, 0.45);
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+        border-color: $brand;
+        background: $brand-dim;
+    }
+
+    &--drag {
+        border-color: $brand;
+        background: $brand-dim;
+        transform: scale(1.01);
+    }
+
+    &--file {
+        border-style: solid;
+        border-color: $border-subtle;
+        background: rgba($bg-primary, 0.7);
+        cursor: default;
+
+        &:hover {
+            border-color: $border-subtle;
+            background: rgba($bg-primary, 0.7);
+        }
+    }
+
+    &__empty {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+
+        .icon--accent {
+            color: $brand;
+            flex-shrink: 0;
+        }
+
+        strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 2px;
+        }
+
+        span {
+            display: block;
+            font-size: 0.8rem;
+            color: $text-muted;
+        }
+    }
+
+    &__uploaded {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+
+        .icon--accent {
+            color: $brand;
+            flex-shrink: 0;
+        }
+    }
+
+    &__file-meta {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        strong {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: $text-primary;
+            word-break: break-all;
+        }
+
+        span {
+            font-size: 0.75rem;
+            color: $text-muted;
+        }
+    }
+
+    &__remove {
+        background: $bg-hover;
+        border: none;
+        color: $text-secondary;
+        width: 30px;
+        height: 30px;
+        border-radius: $radius-sm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all $transition-fast;
+        flex-shrink: 0;
+
+        &:hover {
+            background: rgba($error, 0.15);
+            color: $error;
+        }
+    }
+}
+
+// ── OR Divider ──
+.or-divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: $text-muted;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: $border-subtle;
+    }
+
+    span {
+        padding: 0 16px;
+    }
+}
+
+// ── Password Strength ──
+.password-strength {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+
+    &__bar {
+        flex: 1;
+        height: 3px;
+        border-radius: $radius-full;
+        background: $bg-hover;
+        transition: background $transition-base;
+
+        &.active {
+            &.weak {
+                background: $error;
+            }
+
+            &.fair {
+                background: $warning;
+            }
+
+            &.good {
+                background: $info;
+            }
+
+            &.strong {
+                background: $success;
+            }
+        }
+    }
+
+    &__label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin-top: 4px;
+        text-align: right;
+
+        &.weak {
+            color: $error;
+        }
+
+        &.fair {
+            color: $warning;
+        }
+
+        &.good {
+            color: $info;
+        }
+
+        &.strong {
+            color: $success;
+        }
+    }
+}

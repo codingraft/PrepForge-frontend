@@ -1,0 +1,255 @@
+@use '../variables' as *;
+
+// ── App Shell ──
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: $bg-primary;
+}
+
+// ── Topbar ──
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    border-bottom: 1px solid $border-subtle;
+    background: rgba($bg-primary, 0.85);
+    backdrop-filter: blur(16px);
+    position: sticky;
+    top: 0;
+    z-index: $z-navbar;
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__logo {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: $text-primary;
+        letter-spacing: -0.5px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__user {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: $text-muted;
+        padding: 6px 14px;
+        border: 1px solid $border-subtle;
+        border-radius: $radius-full;
+    }
+
+    &__back {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: $radius-sm;
+        color: $text-secondary;
+        transition: all $transition-fast;
+
+        &:hover {
+            background: $bg-hover;
+            color: $text-primary;
+        }
+    }
+
+    @media (max-width: $bp-sm) {
+        padding: 12px 16px;
+    }
+}
+
+// ── Page Layout ──
+.page {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 56px 24px 120px;
+
+    &--wide {
+        max-width: 1100px;
+    }
+
+    &--centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+    }
+
+    &__header {
+        margin-bottom: 36px;
+
+        h1 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            color: $text-primary;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: $text-secondary;
+            line-height: 1.5;
+        }
+    }
+}
+
+// ── Page Loader ──
+.page-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 24px;
+
+    &__logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $text-primary;
+        letter-spacing: -0.5px;
+        animation: pulse 2s ease infinite;
+    }
+}
+
+// ── Empty State ──
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 24px;
+    animation: fadeUp 0.3s ease;
+
+    &__icon {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $bg-secondary;
+        border: 1px solid $border-subtle;
+        border-radius: $radius;
+        margin-bottom: 20px;
+        color: $text-muted;
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-primary;
+        margin-bottom: 8px;
+    }
+
+    &__desc {
+        font-size: 0.85rem;
+        color: $text-secondary;
+        max-width: 320px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+}
+
+.qa-card {
+    background: $bg-secondary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform $transition-spring, box-shadow $transition-spring, border-color $transition-base;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: rgba($brand, 0.5);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    &__header {
+        padding: 24px;
+        background: rgba(#ffffff, 0.02);
+        border-bottom: 1px solid $border-subtle;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: $text-primary;
+            line-height: 1.5;
+            margin: 0;
+        }
+    }
+
+    &__badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        background: rgba($brand, 0.1);
+        color: $brand;
+        border-radius: $radius-lg;
+        font-size: 0.85rem;
+        font-weight: 700;
+    }
+
+    &__body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex: 1;
+    }
+
+    &__section {
+        p {
+            font-size: 0.9rem;
+            color: $text-secondary;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        &--answer {
+            flex: 1;
+            padding-top: 20px;
+            border-top: 1px dashed $border-subtle;
+        }
+    }
+
+    &__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+
+        &--intent {
+            color: #a1a1aa;
+        }
+
+        &--answer {
+            color: $brand;
+        }
+    }
+}

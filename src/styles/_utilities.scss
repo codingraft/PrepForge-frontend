@@ -1,0 +1,105 @@
+@use 'variables' as *;
+
+// ── Spinner ──
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba($accent-fg, 0.2);
+    border-top-color: $accent-fg;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+
+    &--lg {
+        width: 32px;
+        height: 32px;
+        border-width: 3px;
+        border-color: rgba($text-primary, 0.2);
+        border-top-color: $text-primary;
+    }
+
+    &--brand {
+        border-color: rgba($brand, 0.2);
+        border-top-color: $brand;
+    }
+
+    &--icon {
+        animation: spin 0.8s linear infinite;
+        color: $brand;
+    }
+}
+
+// ── Pill ──
+.pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: $brand;
+    background: $brand-dim;
+    border: 1px solid $brand-muted;
+    padding: 4px 12px;
+    border-radius: $radius-full;
+    margin-bottom: 16px;
+}
+
+// ── Tag ──
+.tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: $radius-full;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &--green {
+        color: #4ade80;
+        background: $success-dim;
+        border: 1px solid $success-border;
+    }
+}
+
+// ── Severity ──
+.severity {
+    &--high .skill-chip__dot {
+        background: $error;
+    }
+
+    &--med .skill-chip__dot {
+        background: $warning;
+    }
+
+    &--low .skill-chip__dot {
+        background: $success;
+    }
+}
+
+// ── Icon helpers ──
+.icon--accent {
+    color: $brand;
+}
+
+.icon--done {
+    color: $success;
+    animation: popIn 0.3s ease;
+}
+
+.icon--pending {
+    color: $border-focus;
+}
+
+// ── Glass effect ──
+.glass {
+    background: rgba($bg-primary, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba($border-subtle, 0.8);
+}
+
+// ── Gradient text ──
+.gradient-text {
+    background: linear-gradient(135deg, $text-primary 0%, $text-secondary 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

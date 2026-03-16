@@ -1,0 +1,109 @@
+@use 'variables' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-base;
+    border: 1px solid transparent;
+    padding: 8px 16px;
+    line-height: 1.25rem;
+    gap: 6px;
+    white-space: nowrap;
+
+    &--primary {
+        background: $accent;
+        color: $accent-fg;
+        box-shadow: $shadow-sm;
+
+        &:hover {
+            background: $accent-hover;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &--outline {
+        background: transparent;
+        color: $text-primary;
+        border-color: $border-subtle;
+
+        &:hover {
+            background: $bg-secondary;
+            border-color: $border-focus;
+        }
+    }
+
+    &--accent {
+        background: $brand;
+        color: #fff;
+        box-shadow: 0 4px 14px rgba($brand, 0.3);
+        gap: 8px;
+
+        &:hover:not(:disabled) {
+            background: $brand-hover;
+            box-shadow: 0 6px 20px rgba($brand, 0.4);
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+
+    &--ghost {
+        background: transparent;
+        color: $text-secondary;
+        border: none;
+
+        &:hover {
+            color: $text-primary;
+            background: $bg-secondary;
+        }
+    }
+
+    &--lg {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        height: 48px;
+    }
+
+    &--cta {
+        background: $brand;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px 28px;
+        border-radius: $radius-sm;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        transition: all $transition-base;
+        box-shadow: $shadow-glow;
+
+        &:hover:not(:disabled) {
+            background: $brand-hover;
+            box-shadow: $shadow-glow-lg;
+            transform: translateY(-1px);
+        }
+
+        &:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+    }
+}

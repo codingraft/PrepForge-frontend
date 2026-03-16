@@ -1,0 +1,462 @@
+@use '../variables' as *;
+
+// ── Report Summary Banner ──
+.report-summary {
+    display: flex;
+    align-items: center;
+    background: $bg-secondary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    gap: 32px;
+
+    @media (max-width: $bp-lg) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    &__divider {
+        width: 1px;
+        height: 64px;
+        background: $border-subtle;
+
+        @media (max-width: $bp-lg) {
+            width: 100%;
+            height: 1px;
+        }
+    }
+}
+
+// ── Score Card (Horizontal variant) ──
+.score-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+
+    &__icon {
+        color: $brand;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    &__value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $text-primary;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+
+    &__ring {
+        width: 64px;
+        height: 64px;
+        margin-left: 12px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+    }
+
+    &__track {
+        fill: none;
+        stroke: $bg-hover;
+        stroke-width: 3.8;
+    }
+
+    &__progress {
+        fill: none;
+        stroke: $brand;
+        stroke-width: 3.8;
+        stroke-linecap: round;
+        transition: stroke-dasharray $transition-spring;
+    }
+}
+
+// ── Gaps Summary ──
+.gaps-summary {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: $text-primary;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            svg {
+                color: $brand;
+            }
+        }
+    }
+}
+
+.skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: $radius-full;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+
+    &__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+    }
+
+    &.severity--high {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.2);
+        color: #fca5a5;
+
+        .skill-chip__dot {
+            background: #ef4444;
+        }
+    }
+
+    &.severity--med {
+        background: rgba(245, 158, 11, 0.1);
+        border-color: rgba(245, 158, 11, 0.2);
+        color: #fcd34d;
+
+        .skill-chip__dot {
+            background: #f59e0b;
+        }
+    }
+
+    &.severity--low {
+        background: rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.2);
+        color: #93c5fd;
+
+        .skill-chip__dot {
+            background: #3b82f6;
+        }
+    }
+}
+
+.severity-legend {
+    display: flex;
+    gap: 16px;
+    font-size: 0.75rem;
+    color: $text-muted;
+    font-weight: 600;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+
+        &--high {
+            background: #ef4444;
+            box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+        }
+
+        &--med {
+            background: #f59e0b;
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+        }
+
+        &--low {
+            background: #3b82f6;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+        }
+    }
+}
+
+// ── Horizontal Navigation Tabs ──
+.horizontal-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $border-subtle;
+    padding-bottom: 16px;
+    overflow-x: auto;
+
+    // Custom scrollbar for horizontal scrolling on small screens
+    &::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $border-subtle;
+        border-radius: 4px;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-radius: $radius-full;
+        background: transparent;
+        color: $text-muted;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        transition: all $transition-base;
+
+        &:hover {
+            background: $bg-hover;
+            color: $text-primary;
+        }
+
+        &.active {
+            background: rgba($brand, 0.1);
+            color: $brand;
+            box-shadow: inset 0 0 0 1px rgba($brand, 0.2);
+        }
+    }
+}
+
+// ── Tab Content Headers ──
+.tab-content {
+    animation: fadeIn 0.4s ease-out;
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 32px;
+
+        >svg {
+            color: $brand;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: $text-secondary;
+            font-size: 0.95rem;
+        }
+    }
+}
+
+// ── QA Grid (2 Columns) ──
+.qa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+
+    @media (max-width: $bp-lg) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ── Roadmap Grid (Horizontal timeline alternative) ──
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+
+    &__card {
+        background: $bg-secondary;
+        border: 1px solid $border-subtle;
+        border-radius: $radius-lg;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        transition: transform $transition-spring, border-color $transition-base;
+
+        &:hover {
+            transform: translateY(-2px);
+            border-color: rgba($brand, 0.4);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            li {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                font-size: 0.85rem;
+                color: $text-secondary;
+                line-height: 1.5;
+
+                .icon-check {
+                    color: $brand;
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+
+    &__header {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px dashed $border-subtle;
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: $text-primary;
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        padding: 4px 10px;
+        background: rgba($brand, 0.1);
+        color: $brand;
+        border-radius: $radius-full;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+}
+
+.report-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 18px;
+
+    @media (max-width: $bp-sm) {
+        justify-content: stretch;
+        flex-direction: column;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+.resume-modal__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.resume-modal {
+    width: min(720px, 100%);
+    background: $bg-secondary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 20px;
+        border-bottom: 1px solid $border-subtle;
+
+        h3 {
+            font-size: 1rem;
+            color: $text-primary;
+            margin: 0;
+        }
+    }
+
+    &__body {
+        padding: 16px 20px;
+        display: grid;
+        gap: 12px;
+
+        .resume-modal__hint {
+            margin: 0;
+            font-size: 0.8rem;
+            color: $text-muted;
+            line-height: 1.45;
+            background: rgba($info, 0.08);
+            border: 1px solid rgba($info, 0.25);
+            border-radius: $radius-sm;
+            padding: 10px 12px;
+        }
+
+        label {
+            display: grid;
+            gap: 6px;
+            color: $text-secondary;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background: $bg-primary;
+            border: 1px solid $border-subtle;
+            color: $text-primary;
+            border-radius: $radius-sm;
+            padding: 10px 12px;
+            font: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+    }
+
+    &__footer {
+        padding: 14px 20px 18px;
+        border-top: 1px solid $border-subtle;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+}

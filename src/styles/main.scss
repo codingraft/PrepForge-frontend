@@ -1,0 +1,18 @@
+// ── PrepForge — Main Stylesheet ──
+
+// Foundation
+@use 'variables';
+@use 'reset';
+@use 'animations';
+@use 'buttons';
+@use 'forms';
+@use 'utilities';
+
+// Component styles
+@use 'components/layout';
+
+// Page styles
+@use 'pages/home';
+@use 'pages/auth';
+@use 'pages/dashboard';
+@use 'pages/report';

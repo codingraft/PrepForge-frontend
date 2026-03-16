@@ -1,0 +1,78 @@
+// ── Design Tokens ──
+
+// Colors — Background
+$bg-primary: #09090b;
+$bg-secondary: #18181b;
+$bg-hover: #27272a;
+$bg-elevated: #1f1f23;
+
+// Colors — Border
+$border-subtle: #27272a;
+$border-focus: #52525b;
+$border-glow: rgba(225, 29, 72, 0.3);
+
+// Colors — Text
+$text-primary: #fafafa;
+$text-secondary: #a1a1aa;
+$text-muted: #71717a;
+
+// Colors — Accent (white)
+$accent: #fafafa;
+$accent-hover: #e4e4e7;
+$accent-fg: #09090b;
+
+// Colors — Brand (rose)
+$brand: #e11d48;
+$brand-hover: #f43f5e;
+$brand-dim: rgba(225, 29, 72, 0.15);
+$brand-muted: rgba(225, 29, 72, 0.4);
+$brand-glow: rgba(225, 29, 72, 0.25);
+
+// Colors — Semantic
+$error: #ef4444;
+$error-dim: rgba(239, 68, 68, 0.12);
+$success: #22c55e;
+$success-dim: rgba(34, 197, 94, 0.12);
+$success-border: rgba(34, 197, 94, 0.2);
+$warning: #f59e0b;
+$warning-dim: rgba(245, 158, 11, 0.12);
+$info: #3b82f6;
+$info-dim: rgba(59, 130, 246, 0.1);
+$info-border: rgba(59, 130, 246, 0.3);
+
+// Radius
+$radius-xs: 6px;
+$radius-sm: 8px;
+$radius: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-full: 100px;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 14px rgba(0, 0, 0, 0.2);
+$shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+$shadow-glow: 0 4px 16px $brand-glow;
+$shadow-glow-lg: 0 6px 24px rgba(225, 29, 72, 0.35);
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+$transition-spring: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Z-index
+$z-navbar: 50;
+$z-dropdown: 60;
+$z-modal: 70;
+$z-toast: 80;
+
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 960px;
+$bp-xl: 1200px;
+
+// Typography
+$font-family: 'Inter', system-ui, -apple-system, sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
